@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "everything_is_fluid",
+  "version": "${version}",
+  "name": "Everything is Fluid",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/everything_is_fluid/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.jship.everythingisfluid.fabric.EverythingIsFluidFabric"
+    ],
+    "client": [
+      "com.jship.everythingisfluid.fabric.client.EverythingIsFluidFabricClient"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

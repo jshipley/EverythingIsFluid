@@ -1,4 +1,4 @@
-package com.jship.everythingisfluid.client;
+package com.jship.everythingisfluid.fabric.client;
 
 import com.jship.everythingisfluid.EverythingIsFluid;
 
@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
-public class EverythingIsFluidClient implements ClientModInitializer {
+public class EverythingIsFluidFabricClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {

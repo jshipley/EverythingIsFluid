@@ -1,6 +1,9 @@
-package com.jship.everythingisfluid;
+package com.jship.everythingisfluid.fabric;
 
+import com.jship.everythingisfluid.EverythingIsFluid;
 import com.jship.everythingisfluid.fluid.HoneyFluid;
+
+import io.github.tropheusj.milk.Milk;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -33,27 +36,17 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class EverythingIsFluid implements ModInitializer {
-        public static final String MOD_ID = "everything_is_fluid";
-
-        public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-        public static final FlowingFluid HONEY;
-        public static final FlowingFluid FLOWING_HONEY;
-        public static final Block HONEY_SOURCE_BLOCK;
-        public static final Item HONEY_BUCKET;
-        public static final TagKey<Fluid> C_HONEY;
-
+public class EverythingIsFluidFabric implements ModInitializer {
         static {
-                HONEY = Registry.register(BuiltInRegistries.FLUID, new ResourceLocation(MOD_ID, "honey"),
+                EverythingIsFluid.HONEY = Registry.register(BuiltInRegistries.FLUID,
+                                new ResourceLocation(EverythingIsFluid.MOD_ID, "honey"),
                                 new HoneyFluid.Source());
-                FLOWING_HONEY = Registry.register(BuiltInRegistries.FLUID,
-                                new ResourceLocation(MOD_ID, "flowing_honey"), new HoneyFluid.Flowing());
-                HONEY_SOURCE_BLOCK = Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MOD_ID, "honey"),
-                                new LiquidBlock(HONEY, BlockBehaviour.Properties.of()
+                EverythingIsFluid.FLOWING_HONEY = Registry.register(BuiltInRegistries.FLUID,
+                                new ResourceLocation(EverythingIsFluid.MOD_ID, "flowing_honey"),
+                                new HoneyFluid.Flowing());
+                EverythingIsFluid.HONEY_SOURCE_BLOCK = Registry.register(BuiltInRegistries.BLOCK,
+                                new ResourceLocation(EverythingIsFluid.MOD_ID, "honey"),
+                                new LiquidBlock(EverythingIsFluid.HONEY, BlockBehaviour.Properties.of()
                                                 .mapColor(MapColor.COLOR_YELLOW)
                                                 .replaceable()
                                                 .noCollission()
@@ -64,16 +57,26 @@ public class EverythingIsFluid implements ModInitializer {
                                                 .noLootTable()
                                                 .liquid()
                                                 .sound(SoundType.HONEY_BLOCK)));
-                HONEY_BUCKET = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MOD_ID, "honey_bucket"),
-                                new BucketItem(HONEY, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-                C_HONEY = TagKey.create(Registries.FLUID, new ResourceLocation("c", "honey"));
+                EverythingIsFluid.HONEY_BUCKET = Registry.register(BuiltInRegistries.ITEM,
+                                new ResourceLocation(EverythingIsFluid.MOD_ID, "honey_bucket"),
+                                new BucketItem(EverythingIsFluid.HONEY,
+                                                new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+                EverythingIsFluid.C_HONEY = TagKey.create(Registries.FLUID, new ResourceLocation("c", "honey"));
 
+        }
+
+        public EverythingIsFluidFabric() {
+                Milk.enableMilkFluid();
+                Milk.enableMilkPlacing();
+                Milk.finiteMilkFluid();
+                Milk.enableCauldron();
+                Milk.enableAllMilkBottles();
         }
 
         @Override
         public void onInitialize() {
-                ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(content -> {
-                        content.addAfter(Items.LAVA_BUCKET, HONEY_BUCKET);
+                ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(content -> {
+                        content.addAfter(Items.LAVA_BUCKET, EverythingIsFluid.HONEY_BUCKET);
                 });
         }
 }
