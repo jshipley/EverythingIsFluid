@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "everything_is_fluid",
+	"version": "${version}",
+	"name": "Everything Is Fluid",
+	"description": "A hopper that can transfer fluids between fluid sources and containers.",
+	"authors": [
+		"jshipley"
+	],
+	"contact": {
+		"homepage": "https://github.com/jshipley/FluidHopper",
+		"sources": "https://github.com/jshipley/FluidHopper"
+	},
+	"license": "MIT",
+	"icon": "assets/fluidhopper/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.jship.everythingisfluid.EverythingIsFluid"
+		],
+		"client": [
+			"com.jship.everythingisfluid.client.EverythingIsFluidClient"
+		]
+	},
+	"accessWidener": "everything_is_fluid.accesswidener",
+	"mixins": [
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": ">=1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

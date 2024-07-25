@@ -1,0 +1,9 @@
+{
+    "block.everything_is_fluid.everything_is_fluid": "Fluid Hopper",
+    "item.everything_is_fluid.everything_is_fluid": "Fluid Hopper",
+    "block.everything_is_fluid.honey": "Honey",
+    "item.everything_is_fluid.honey_bucket": "Honey Bucket",
+    "entity.everything_is_fluid.everything_is_fluid_minecart": "Minecart with Fluid Hopper",
+    "item.everything_is_fluid.everything_is_fluid_minecart": "Minecart with Fluid Hopper",
+    "stat.everything_is_fluid.interact_with_everything_is_fluid": "Interactions with Fluid Hopper"
+}

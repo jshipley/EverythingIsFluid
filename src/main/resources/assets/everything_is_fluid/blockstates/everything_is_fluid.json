@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "everything_is_fluid:block/everything_is_fluid"
+    },
+    "facing=east": {
+      "model": "everything_is_fluid:block/everything_is_fluid_side",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "everything_is_fluid:block/everything_is_fluid_side"
+    },
+    "facing=south": {
+      "model": "everything_is_fluid:block/everything_is_fluid_side",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "everything_is_fluid:block/everything_is_fluid_side",
+      "y": 270
+    }
+  }
+}
